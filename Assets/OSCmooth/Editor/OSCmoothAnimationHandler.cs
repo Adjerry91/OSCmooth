@@ -86,14 +86,14 @@ namespace OSCTools.OSCmooth.Animation
                 localChildMotion.Add(new ChildMotion 
                 {
                     directBlendParameter = "1Set",
-                    motion = AnimUtil.CreateSmoothingBlendTree(animatorController, animLayer.stateMachine, parameter.localSmoothness, parameter.paramName),
+                    motion = AnimUtil.CreateSmoothingBlendTree(animatorController, animLayer.stateMachine, parameter.localSmoothness, parameter.paramName, parameter.smoothName, "Local"),
                     timeScale = 1
                 });
 
                 remoteChildMotion.Add(new ChildMotion
                 {
                     directBlendParameter = "1Set",
-                    motion = AnimUtil.CreateSmoothingBlendTree(animatorController, animLayer.stateMachine, parameter.remoteSmoothness, parameter.paramName, "SmootherRemote"),
+                    motion = AnimUtil.CreateSmoothingBlendTree(animatorController, animLayer.stateMachine, parameter.remoteSmoothness, parameter.paramName, parameter.smoothName, "Remote"),
                     timeScale = 1,
                 });
             }

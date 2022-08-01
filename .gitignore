@@ -361,3 +361,10 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+**/VRCSDK
+**/Library
+**/ProjectSettings
+**/Temp
+**/Assets/Resources
+**/OSCmooth/Generated/Anims

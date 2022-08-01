@@ -78,9 +78,9 @@ namespace OSCTools.OSCmooth.Util
             return new AnimationClip[] { _animationClip1, _animationClip2 };
         }
 
-        public static BlendTree CreateSmoothingBlendTree(AnimatorController animatorController, AnimatorStateMachine stateMachine, float smoothness, string paramName, string smoothnessSuffix = "Smoother", string proxySuffix = "Proxy")
+        public static BlendTree CreateSmoothingBlendTree(AnimatorController animatorController, AnimatorStateMachine stateMachine, float smoothness, string paramName, string smootherName, string netState = "Local", string smoothnessSuffix = "Smoother", string proxySuffix = "Proxy")
         {
-            AnimatorControllerParameter smootherParam = ParameterUtil.CheckAndCreateParameter(paramName + smoothnessSuffix, animatorController, AnimatorControllerParameterType.Float, smoothness);
+            AnimatorControllerParameter smootherParam = ParameterUtil.CheckAndCreateParameter(smootherName + netState, animatorController, AnimatorControllerParameterType.Float, smoothness);
             ParameterUtil.CheckAndCreateParameter(paramName + proxySuffix, animatorController, AnimatorControllerParameterType.Float);
             ParameterUtil.CheckAndCreateParameter(paramName, animatorController, AnimatorControllerParameterType.Float);
 
@@ -89,7 +89,7 @@ namespace OSCTools.OSCmooth.Util
             {
                 blendType = BlendTreeType.Simple1D,
                 hideFlags = HideFlags.HideInHierarchy,
-                blendParameter = paramName + smoothnessSuffix,
+                blendParameter = smootherName + netState,
                 name = paramName + " Root",
                 useAutomaticThresholds = false
             };

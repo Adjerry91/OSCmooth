@@ -126,17 +126,33 @@ namespace OSCTools.OSCmooth
 
                         if (layer.isVisible)
                         {
-                            EditorGUIUtility.labelWidth = 60;
+                            EditorGUIUtility.labelWidth = 200;
 
                             layer.paramName = EditorGUILayout.TextField
                             (
                                 new GUIContent
                                 (
-                                    "",
+                                    "Parameter to smooth:",
                                     "The specific float parameter that will have the smoothness layer have applied to."
                                 ),
                                 layer.paramName
                             );
+                            EditorGUILayout.BeginHorizontal();
+
+                            EditorGUIUtility.labelWidth = 200;
+
+                            layer.smoothName = EditorGUILayout.TextField
+                            (
+                                new GUIContent
+                                (
+                                    "Smoother variable:",
+                                    "The float variable to be used for smoothing. Can use default or can seperate out."
+                                ),
+                                layer.smoothName
+                            );
+
+
+                            EditorGUILayout.EndHorizontal();
                             EditorGUILayout.BeginHorizontal();
 
                             EditorGUILayout.LabelField
